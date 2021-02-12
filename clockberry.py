@@ -121,6 +121,66 @@ COLUMN10 = [ROW1[9],ROW2[9],ROW3[9],ROW4[9],ROW5[9],ROW6[9],ROW7[9],ROW8[9],ROW9
 COLUMN11 = [ROW1[10],ROW2[10],ROW3[10],ROW4[10],ROW5[10],ROW6[10],ROW7[10],ROW8[10],ROW9[10],ROW10[10],ROW11[10]]
 MATRIXCOLS = [COLUMN1,COLUMN2,COLUMN3,COLUMN4,COLUMN5,COLUMN6,COLUMN7,COLUMN8,COLUMN9,COLUMN10,COLUMN11]
 
+#LETTERS DEFINED AS AN ARRAY OF [row,col] locations, noted as submatrices of 5x5
+#reference this page: https://fontstruct.com/fontstructions/show/811135/5x5_pixel_font
+UPPERA = [[1,2],[1,3],[1,4],[2,1],[2,5],[3,1],[3,2],[3,3],[3,4],[3,5],[4,1],[4,5],[5,1],[5,5]]
+UPPERB = [[1,1],[1,2],[1,3],[1,4],[2,1],[2,5],[3,1],[3,2],[3,3],[3,4],[4,1],[4,5],[5,1],[5,2],[5,3],[5,4],[5,5]]
+UPPERC = [[1,2],[1,3],[1,4],[2,1],[2,5],[3,1],[4,1],[4,5],[5,2],[5,3],[5,4]]
+UPPERD = [[1,1],[1,2],[1,3],[1,4],[2,1],[2,5],[3,1],[3,5],[4,1],[4,5],[5,1],[5,2],[5,3],[5,4]]
+UPPERE = [[1,1],[1,2],[1,3],[1,4],[1,5],[2,1],[3,1],[3,2],[3,3],[4,1],[5,1],[5,2],[5,3],[5,4],[5,5]]
+UPPERF = [[1,1],[1,2],[1,3],[1,4],[1,5],[2,1],[3,1],[3,2],[3,3],[4,1],[5,1]]
+UPPERG = [[1,2],[1,3],[1,4],[1,5],[2,1],[3,1],[3,3],[3,4],[3,5],[4,1],[4,5],[5,2],[5,3],[5,4],[5,5]]
+UPPERH = [[1,1],[1,5],[2,1],[2,5],[3,1],[3,2],[3,3],[3,4],[3,5],[4,1],[4,5],[5,1],[5,5]]
+UPPERI = [[1,1],[1,2],[1,3],[1,4],[1,5],[2,3],[3,3],[4,3],[5,1],[5,2],[5,3],[5,4],[5,5]]
+UPPERJ = [[1,3],[1,4],[1,5],[2,3],[3,3],[4,1],[4,3],[5,2]]
+UPPERK = [[1,1],[1,5],[2,1],[2,4],[3,1],[3,3],[4,1],[4,2],[4,4],[5,1],[5,5]]
+UPPERL = [[1,1],[2,1],[3,1],[4,1],[5,1],[5,2],[5,3],[5,4],[5,5]]
+UPPERM = [[1,1],[1,5],[2,1],[2,2],[2,4],[2,5],[3,1],[3,3],[3,5],[4,1],[4,5],[5,1],[5,5]]
+UPPERN = [[1,1],[1,5],[2,1],[2,2],[2,5],[3,1],[3,3],[3,5],[4,1],[4,4],[4,5],[5,1],[5,5]]
+UPPERO = [[1,2],[1,3],[1,4],[2,1],[2,5],[3,1],[3,5],[4,1],[4,5],[5,2],[5,3],[5,4]]
+UPPERP = [[1,1],[1,2],[1,3],[1,4],[2,1],[2,5],[3,1],[3,2],[3,3],[3,4],[4,1],[5,1]]
+UPPERQ = [[1,2],[1,3],[1,4],[2,1],[2,5],[3,1],[3,3],[3,5],[4,1],[4,4],[5,2],[5,3],[5,5]]
+UPPERR = [[1,1],[1,2],[1,3],[1,4],[2,1],[2,5],[3,1],[3,2],[3,3],[3,4],[4,1],[4,4],[5,1],[5,5]]
+UPPERS = [[1,2],[1,3],[1,4],[1,5],[2,1],[3,2],[3,3],[3,4],[4,5],[5,1],[5,2],[5,3],[5,4]]
+UPPERT = [[1,1],[1,2],[1,3],[1,4],[1,5],[2,3],[3,3],[4,3],[5,3]]
+UPPERU = [[1,1],[1,5],[2,1],[2,5],[3,1],[3,5],[4,1],[4,5],[5,2],[5,3],[5,4]]
+UPPERV = [[1,1],[1,5],[2,2],[2,4],[3,2],[3,4],[4,3],[5,3]]
+UPPERW = [[1,1],[1,5],[2,1],[2,3],[2,5],[3,1],[3,3],[3,5],[4,2],[4,4],[5,2],[5,4]]
+UPPERX = [[1,1],[1,5],[2,2],[2,4],[3,3],[4,2],[4,4],[5,1],[5,5]]
+UPPERY = [[1,1],[1,5],[2,2],[2,4],[3,3],[4,3],[5,3]]
+UPPERZ = [[1,1],[1,2],[1,3],[1,4],[2,3],[3,2],[4,1],[5,1],[5,2],[5,3],[5,4]]
+
+UPPERCASE = [["A",UPPERA],["B",UPPERB],["C",UPPERC],["D",UPPERD],["E",UPPERE],["F",UPPERF],["G",UPPERG],["H",UPPERH],["I",UPPERI],["J",UPPERJ],["K",UPPERK],["L",UPPERL],["M",UPPERM],["N",UPPERN],["O",UPPERO],["P",UPPERP],["Q",UPPERQ],["R",UPPERR],["S",UPPERS],["T",UPPERT],["U",UPPERU],["V",UPPERV],["W",UPPERW],["X",UPPERX],["Y",UPPERY],["Z",UPPERZ]]
+
+LOWERA = [[2,1],[2,2],[2,3],[2,4],[3,2],[3,3],[3,4],[3,5],[4,1],[4,5],[5,2],[5,3],[5,4],[5,5]]
+LOWERB = [[1,1],[2,1],[3,1],[3,2],[3,3],[3,4],[4,1],[4,5],[5,1],[5,2],[5,3],[5,4]]
+LOWERC = [[3,2],[3,3],[3,4],[3,5],[4,1],[5,2],[5,3],[5,4],[5,5]]
+LOWERD = [[1,5],[2,5],[3,2],[3,3],[3,4],[3,5],[4,1],[4,5],[5,2],[5,3],[5,4],[5,5]]
+LOWERE = [[2,2],[2,3],[3,1],[3,4],[4,1],[4,2],[4,3],[5,2],[5,3],[5,4],[5,5]]
+LOWERF = [[1,4],[1,5],[2,3],[3,1],[3,2],[3,3],[3,4],[4,3],[5,3]]
+LOWERG = [[1,2],[1,3],[1,4],[2,1],[2,3],[3,2],[3,3],[3,4],[4,3],[4,5],[5,4]]
+LOWERH = [[1,1],[2,1],[3,1],[3,2],[3,3],[3,4],[4,1],[4,5],[5,1],[5,5]]
+LOWERI = [[1,3],[3,1],[3,2],[3,3],[4,3],[5,4],[5,5]]
+LOWERJ = [[1,3],[3,3],[3,4],[3,5],[4,5],[5,1],[5,2],[5,3],[5,4]]
+LOWERK = [[1,1],[2,1],[3,1],[3,4],[3,5],[4,1],[4,3],[4,4],[5,1],[5,2],[5,5]]
+LOWERL = [[1,1],[1,2],[1,3],[2,3],[3,3],[4,3],[5,4],[5,5]]
+LOWERM = [[3,1],[3,2],[3,4],[4,1],[4,3],[4,5],[5,1],[5,3],[5,5]]
+LOWERN = [[3,1],[3,3],[3,4],[4,1],[4,2],[4,5],[5,1],[5,5]]
+LOWERO = [[3,2],[3,3],[3,4],[4,1],[4,5],[5,2],[5,3],[5,4]]
+LOWERP = [[1,1],[1,3],[1,4],[2,1],[2,2],[2,5],[3,1],[3,3],[3,4],[4,1],[5,1]]
+LOWERQ = [[1,2],[1,3],[1,5],[2,1],[2,4],[2,5],[3,2],[3,3],[3,5],[4,5],[5,5]]
+LOWERR = [[3,1],[3,3],[3,4],[3,5],[4,1],[4,2],[5,1]]
+LOWERS = [[3,2],[3,3],[3,4],[3,5],[4,3],[5,1],[5,2],[5,3],[5,4]]
+LOWERT = [[1,3],[2,1],[2,2],[2,3],[2,4],[2,5],[3,3],[4,3],[5,4],[5,5]]
+LOWERU = [[3,1],[3,5],[4,1],[4,4],[4,5],[5,2],[5,3],[5,5]]
+LOWERV = [[3,1],[3,5],[4,2],[4,4],[5,5]]
+LOWERW = [[3,1],[3,3],[3,5],[4,2],[4,3],[4,4],[5,2],[5,4]]
+LOWERX = [[3,1],[3,2],[3,4],[3,5],[4,3],[5,1],[5,2],[5,4],[5,5]]
+LOWERY = [[3,3],[3,4],[3,5],[4,4],[4,5],[5,1],[5,2],[5,3],[5,4]]
+LOWERZ = [[3,1],[3,2],[3,3],[3,4],[4,3],[5,1],[5,2],[5,3],[5,4]]
+
+LOWERCASE = [["A",LOWERA],["B",LOWERB],["C",LOWERC],["D",LOWERD],["E",LOWERE],["F",LOWERF],["G",LOWERG],["H",LOWERH],["I",LOWERI],["J",LOWERJ],["K",LOWERK],["L",LOWERL],["M",LOWERM],["N",LOWERN],["O",LOWERO],["P",LOWERP],["Q",LOWERQ],["R",LOWERR],["S",LOWERS],["T",LOWERT],["U",LOWERU],["V",LOWERV],["W",LOWERW],["X",LOWERX],["Y",LOWERY],["Z",LOWERZ]]
+
 class ledConfig:
     def __init__(self, name, onOff, color):
         self.name = name
@@ -555,9 +615,19 @@ def showSmiley(strip, duration):
     time.sleep(duration)
     print("showing smiley -- DONE")
 
-def drawLetterAtPos(strip, row, col, LETTERROWS, LETTERCOLS, color):
-    for led in range(0,len(LETTERROWS)):
-        lightmatrixCell(strip, row + LETTERROWS[led], col + LETTERCOLS[led], color)
+# UNDER CONSTRUCTION
+def drawAWord(strip, row, col, word, color):
+    for letter in word:
+        print("printed letter ",letter)
+# FIND LETTER ARRAY FOR THIS LETTER
+        letterArray = UPPERE
+        drawArray(strip, row, col, letterArray, color)
+        col = col + 6
+# UNDER CONSTRUCTION
+
+def drawArray(strip, row, col, ARRAY, color):
+    for led in ARRAY:
+        lightmatrixCell(strip, row + led[0], col + led[1],color)
     strip.show()
 
 def lightmatrixCell(strip, row, col, color):
@@ -594,6 +664,35 @@ def showXMASTREE(strip):
             strip.setPixelColor(lednr-1,DARKGREEN)
         strip.show()
         time.sleep(random.randint(20,100)/100)
+
+def showTickerTape(strip, strToShow, drawingRow, speed):
+    CHARARRAY = []
+    for aCharacter in range(0, len(strToShow)):
+# FIND ARRAY FOR CHARACTER
+        foundCharArray = strToShow[aCharacter]
+        for COUPLE in UPPERCASE:
+            if(COUPLE[0] == strToShow[aCharacter]):
+#                print("found: ",COUPLE[0])
+                CHARARRAY.append(COUPLE[1])
+#    print("CHARARRAY: ",CHARARRAY)
+# Set position and length parameters for string showing
+    drawingRow = 5
+    startingPosition = 12
+    lengthToMove = 17 + len(CHARARRAY)*6
+#    print("lengthToMove: ",lengthToMove)
+# draw it and move!
+    for posit in range (0, lengthToMove):
+        flushColor(strip, BLACK)
+        positionDelta = 0
+#        print("number of chars to draw: ",len(CHARARRAY))
+        for i in range(0,len(CHARARRAY)):
+#            print("drawing character ",CHARARRAY[i])
+#            print("drawing on posit: ",startingPosition-posit)
+            positionToDraw = startingPosition-posit+positionDelta
+            if(positionToDraw << 12 and positionToDraw+6 >> 0):
+                drawArray(strip, drawingRow, positionToDraw, CHARARRAY[i], WHITE)
+            positionDelta = positionDelta + 6
+        time.sleep(speed)
 
 def getHand(size, minute):
     listToLight = []
@@ -822,20 +921,10 @@ if __name__ == "__main__":
 # show ZZZ if after 7PM
                 if(hourToSet > 16 and hourToSet < 18):
                     animationCoffee(strip, 5)
+                hourToSet = 7
                 if(hourToSet < 10 or hourToSet > 19):
-                    row1 = random.randint(1,8)
-                    row2 = random.randint(1,8)
-                    row3 = random.randint(1,8)
-                    row4 = random.randint(1,8)
-                    for pos in range(-20, 12):
-                        flushColor(strip, BLACK)
-                        LETTERZROWS = [1,1,1,1,2,3,4,5,5,5,5]
-                        LETTERZCOLS = [1,2,3,4,3,2,1,1,2,3,4]
-                        drawLetterAtPos(strip, row1, pos, LETTERZROWS, LETTERZCOLS, WHITE)
-                        drawLetterAtPos(strip, row2, pos + 5, LETTERZROWS, LETTERZCOLS, WHITE)
-                        drawLetterAtPos(strip, row3, pos + 10, LETTERZROWS, LETTERZCOLS, WHITE)
-                        drawLetterAtPos(strip, row4, pos + 15, LETTERZROWS, LETTERZCOLS, WHITE)
-                        time.sleep(0.1)
+                    showTickerTape(strip, "ZZZZ", 5, 0.05)
+
 # on the full hour, run a snake
                 COLORLIST = [RED, GREEN, BLUE, ROSE , BROWN, WHITE, RED, GREEN, BLUE, ROSE, BROWN, BEIGE, RED, GREEN, BLUE, ROSE , BROWN, WHITE, RED, GREEN, BLUE, ROSE, BROWN, BEIGE, RED, GREEN, BLUE, ROSE , BROWN, WHITE, RED, GREEN, BLUE, ROSE, BROWN, BEIGE, WHITE]
                 if(minuteToSet == 0):
