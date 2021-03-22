@@ -5,7 +5,7 @@ import machine
 
 # Configure the number of WS2812 LEDs.
 NUM_LEDS = 122
-PIN_NUM = 22
+PIN_NUM = 21
 previousTick = 0
 brightness = 0.5
 normalbrightness = 0.5
@@ -13,7 +13,7 @@ addedMins = 0
 addedHours = 0
 lastPressed = utime.ticks_ms() 
 
-increaseMins = machine.Pin(14, machine.Pin.IN, machine.Pin.PULL_UP)
+increaseMins = machine.Pin(14, machine.Pin.IN, machine.Pin.PULL_DOWN)
 
 hourToSet = 0
 minuteToSet = 0
@@ -332,9 +332,12 @@ while True:
     print("processor time: ", utime.localtime()[3], ":", utime.localtime()[4], ":", utime.localtime()[5])
     hourToSet = utime.localtime()[3] + addedHours
     minuteToSet = utime.localtime()[4] + addedMins
+    if(minuteToSet >= 60):
+        minuteToSet = minuteToSet - 60
+        hourToSet = hourToSet + 1
     secondsToSet = utime.localtime()[5]
     colorToSet = COLORLIST[hourToSet]
-    print("processor time: ", hourToSet, ":", minuteToSet, ":", secondsToSet)
+    print("corrected time: ", hourToSet, ":", minuteToSet, ":", secondsToSet)
     
     # SHOW COFFEE ANIMATION BETWEEN 4 AND 5 PM
     if(hourToSet >= 16 and hourToSet <= 17 and minuteToSet%5 == 0 and secondsToSet < 3):
@@ -343,11 +346,20 @@ while True:
     if(minuteToSet == 0 and secondsToSet < 2):
         animationSpiral(colorToSet, 5)
 #    print("time is now: ", hourToSet, ":", minuteToSet, ":", secondsToSet)
-    utime.sleep(0.5)
 # set lightstrip
     strandConfig = getEmptyConfig(NUM_LEDS)
     newConfig = getConfigWithSetTime(len(strandConfig), colorToSet, hourToSet, minuteToSet)
     reflectConfig(newConfig)
 #    fadeInToConfig(newConfig,2)
+    if(increaseMins.value()):
+        print("VALUE!")
+        utime.sleep(0.2)
+        addedMins = addedMins + 5
+        if(addedMins >= 60):
+            addedMins = addedMins - 60
+            addedHours = addedHours + 1
+    else:
+        utime.sleep(0.2)
 
-    increaseMins.irq(trigger = machine.Pin.IRQ_FALLING, handler = buttonPressed)
+#    increaseMins.irq(trigger = machine.Pin.IRQ_RISING, handler = buttonPressed)
+    
