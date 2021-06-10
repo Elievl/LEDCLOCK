@@ -11,6 +11,10 @@ brightness = 0.5
 normalbrightness = 0.5
 addedMins = 0
 addedHours = 0
+
+minsLastSet = 0
+hoursLastSet = 0
+
 lastPressed = utime.ticks_ms() 
 
 increaseMins = machine.Pin(14, machine.Pin.IN, machine.Pin.PULL_DOWN)
@@ -132,7 +136,7 @@ def fadeToBlack(duration):
 def fadeInToConfig(strandConfig, duration):
     global brightness
     global normalbrightness
-    print("fading in")
+#    print("fading in")
     brightness = 0
     pixels_show()
     for i in range(NUM_LEDS):
@@ -146,7 +150,7 @@ def fadeInToConfig(strandConfig, duration):
         pixels_show()
     brightness = normalbrightness
     pixels_show()
-    print("fade done")
+#    print("fade done")
 
 def animationCoffee(speed):
     COFFEECUP = [54,53,52,51,50,49,48,57,76,79,98,101,63,85,92,107,119,118,117,116,115,64,65,67,88,90,91]
@@ -291,32 +295,6 @@ def addMinuteToConfig(strandConfig, minute, colorToSet):
     elif(minute < 55):strandConfig=addToConfig(strandConfig,TIENVOOR, colorToSet)
     else:strandConfig=addToConfig(strandConfig,VIJFVOOR, colorToSet)
     return strandConfig
-
-def buttonPressed(irq):
-    global lastPressed
-    global addedMins
-    global addedHours
-    hoursToAdd = 0
-    minsToAdd = 0
-    time_ms = utime.ticks_us()
-    delay = utime.ticks_diff(time_ms, lastPressed)
-    if(delay < 200000):
-        return
-    if(delay > 500000): # simple click
-        lastPressed = time_ms
-        addedMins = addedMins + 5
-        if(addedMins >= 60):
-            addedMins = addedMins - 60 
-    else: # it is a double click
-        lastPressed = time_ms
-        addedMins = addedMins - 5
-        addedHours = addedHours + 1
-        if(addedHours >= 24):
-            addedHours = 0
-        if(addedMins <= 0):
-            addedMins = addedMins + 60        
-    print("mins added: ", addedMins)
-    print("hours added: ", addedHours)
     
 # PROG STARTS HERE
 strandConfig = []
@@ -329,7 +307,7 @@ colorToSet = PURPLE
 pixels_fill(BLACK)
 
 while True:
-    print("processor time: ", utime.localtime()[3], ":", utime.localtime()[4], ":", utime.localtime()[5])
+#    print("processor time: ", utime.localtime()[3], ":", utime.localtime()[4], ":", utime.localtime()[5])
     hourToSet = utime.localtime()[3] + addedHours
     minuteToSet = utime.localtime()[4] + addedMins
     if(minuteToSet >= 60):
@@ -337,7 +315,7 @@ while True:
         hourToSet = hourToSet + 1
     secondsToSet = utime.localtime()[5]
     colorToSet = COLORLIST[hourToSet]
-    print("corrected time: ", hourToSet, ":", minuteToSet, ":", secondsToSet)
+#    print("corrected time: ", hourToSet, ":", minuteToSet, ":", secondsToSet)
     
     # SHOW COFFEE ANIMATION BETWEEN 4 AND 5 PM
     if(hourToSet >= 16 and hourToSet <= 17 and minuteToSet%5 == 0 and secondsToSet < 3):
@@ -345,14 +323,17 @@ while True:
     # RUN SPIRAL ON THE HOUR
     if(minuteToSet == 0 and secondsToSet < 2):
         animationSpiral(colorToSet, 5)
-#    print("time is now: ", hourToSet, ":", minuteToSet, ":", secondsToSet)
-# set lightstrip
-    strandConfig = getEmptyConfig(NUM_LEDS)
-    newConfig = getConfigWithSetTime(len(strandConfig), colorToSet, hourToSet, minuteToSet)
-    reflectConfig(newConfig)
-#    fadeInToConfig(newConfig,2)
+
+# condition to update: there is a change    
+    if(hoursLastSet != hourToSet or minsLastSet != minuteToSet):
+        hoursLastSet = hourToSet
+        minsLastSet = minuteToSet
+        strandConfig = getEmptyConfig(NUM_LEDS)
+        newConfig = getConfigWithSetTime(len(strandConfig), colorToSet, hourToSet, minuteToSet)
+        reflectConfig(newConfig)
+        fadeInToConfig(newConfig,2)
     if(increaseMins.value()):
-        print("VALUE!")
+#        print("VALUE!")
         utime.sleep(0.2)
         addedMins = addedMins + 5
         if(addedMins >= 60):
@@ -360,6 +341,3 @@ while True:
             addedHours = addedHours + 1
     else:
         utime.sleep(0.2)
-
-#    increaseMins.irq(trigger = machine.Pin.IRQ_RISING, handler = buttonPressed)
-    
